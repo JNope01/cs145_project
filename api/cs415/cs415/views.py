@@ -28,4 +28,27 @@ class UserinfoAPIView(APIView):
         serializer = UserinfoSerializer(users, many=True)
         return Response({'usersinfo': serializer.data})
 
+class GetSingleUserAPIView(APIView):
+    def get(self,request,id):
+        user = User.objects.get(pk=id)
+        serializer = UserSerializer(user)
+        return Response({'user': serializer.data})
+
+class GetSingleUserdaylogAPIView(APIView):
+    def get(self,request,id):
+        user = Userdaylog.objects.get(user_id=id)
+        serializer = UserdaylogSerializer(user)
+        return Response({'userinfo': serializer.data})
+
+class GetSingleUsergoalAPIView(APIView):
+    def get(self,request,id):
+        user = Usergoals.objects.get(user_id=id)
+        serializer = UsergoalsSerializer(user)
+        return Response({'userinfo': serializer.data})
+
+class GetSingleUserinfoAPIView(APIView):
+    def get(self,request,id):
+        user = Userinfo.objects.get(user_id=id)
+        serializer = UserinfoSerializer(user)
+        return Response({'userinfo': serializer.data})
 

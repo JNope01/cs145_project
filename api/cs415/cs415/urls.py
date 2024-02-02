@@ -24,4 +24,8 @@ urlpatterns = [
     path('userdaylog/', views.UserdaylogAPIView.as_view()),
     path('usergoals/', views.UsergoalsAPIView.as_view()),
     path('userinfo/', views.UserinfoAPIView.as_view()),
+    path('users/user/<int:id>', views.GetSingleUserAPIView.as_view()),
+    path('userdaylog/user/<int:id>', views.GetSingleUserdaylogAPIView.as_view()),
+    path('usergoals/user/<int:id>', views.GetSingleUsergoalAPIView.as_view()),
+    path('userinfo/user/<int:id>', views.GetSingleUserinfoAPIView.as_view()),
 ]
