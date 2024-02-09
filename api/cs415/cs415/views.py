@@ -3,6 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from cs415.models import User, Userdaylog, Usergoals, Userinfo
 from cs415.serializers import UserSerializer, UserdaylogSerializer, UsergoalsSerializer, UserinfoSerializer
+from cs415.settings import JWT_AUTH
+from cs415.authentication import JWTAuthentication
+
 
 class UserAPIView(APIView):
     def get(self,request):
