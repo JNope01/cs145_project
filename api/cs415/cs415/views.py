@@ -16,6 +16,7 @@ class UserAPIView(APIView):
 
 class UserAPIView(APIView):
     def post(self, request, *args, **kargs):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -75,6 +76,7 @@ class GetSingleUserinfoAPIView(APIView):
 
 class Login(APIView):
     def post(self, request):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
         email = request.data.get("email")
         password = request.data.get("password")
  
