@@ -14,6 +14,16 @@ class UserAPIView(APIView):
         serializer = UserSerializer(users, many=True)
         return Response({'users': serializer.data})
 
+class UserAPIView(APIView):
+    def post(self, request, *args, **kargs):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data': serializer.data})
+        else:
+            return Response({'errors': serializer.errors}, 
+                            status=status.HTTP_400_BAD_REQUEST)
+
 class UserdaylogAPIView(APIView):
     def get(self,request):
         if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
