@@ -13,8 +13,6 @@ class UserAPIView(APIView):
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return Response({'users': serializer.data})
-
-class UserAPIView(APIView):
     def post(self, request, *args, **kargs):
         if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
         serializer = UserSerializer(data=request.data)
