@@ -101,6 +101,7 @@ class Login(APIView):
                 'token': jwt_token
             }
             return Response({'success': True,
+                             'user_id': user.user_id,
                              'token': jwt_token},
                              status=status.HTTP_200_OK)
         else:
