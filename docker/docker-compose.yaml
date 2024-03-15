@@ -1,7 +1,7 @@
 version: "3"
 services:
   cs415-api:
-    build: https://github.com/JNope01/cs415_project.get#container:api/cs415
+    build: https://github.com/JNope01/cs415_project.get#container:api/cs415/
     image: image_cs415_api
     container_name: dc_cs415_api
     restart: always
